@@ -13,7 +13,7 @@
   ],
   "require": {
     "php": ">=5.5.9",
-    "friendsofsymfony/user-bundle": "^2.1",
+    "friendsofsymfony/user-bundle": "^2.1"
   },
   "require-dev": {
     "sensio/generator-bundle": "^3.0",
