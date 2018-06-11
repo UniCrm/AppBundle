@@ -1,0 +1,36 @@
+/* FIX SELECT2 z-index */
+.modal-open .select2-container{
+    z-index: 100;
+}
+
+.modal-open .select2-container--open {
+    z-index: 9999;
+}
+
+/* DATATABLE */
+.dataTables_info {
+    position: inherit;
+}
+
+div.DTTT_container {
+    margin-bottom: 15px;
+}
+
+div.DTTT_container {
+    position: relative;
+    float: right;
+    margin-bottom: 1em;
+}
+
+.custom-toolbar .dataTables_filter{
+    float: right;
+    height: 34px;
+}
+
+.custom-toolbar .dataTables_filter input{
+    height: 34px;
+}
+
+.custom-toolbar .btn{
+    border-radius: 0px;
+}

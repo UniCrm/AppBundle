@@ -1,0 +1,23 @@
+parameters:
+    app_bundle_base_path: '../../../../../../src/UniCrm/Bundles/AppBundle'
+
+services:
+    # all services in this config are now autowired
+    _defaults:
+        autowire: true
+        public: false
+    #all classes under AppBundle are available in container
+    UniCrm\Bundles\AppBundle\:
+        resource: '%app_bundle_base_path%/*'
+        exclude: '../../../../../../src/UniCrm/Bundles/AppBundle/{Entity,Repository}'
+
+    #all classes under AppBundle\DataTable are available in container automatically
+    UniCrm\Bundles\AppBundle\DataTable\:
+        resource: '../../../../../../src/UniCrm/Bundles/AppBundle/DataTable'
+        tags: [ datatable ]
+
+    uni_crm_app.redirect_after_registration_subscriber:
+        class: UniCrm\Bundles\AppBundle\EventListener\RedirectAfterRegistrationSubscriber
+        tags :
+          - { name : kernel.event_subscriber}
+

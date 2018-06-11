@@ -1,0 +1,10 @@
+{% extends '@UniCrmApp/layouts/base.html.twig' %}
+
+{% block title %} Login {% endblock %}
+
+{% block body_clases %} page-login-v2 layout-full page-dark {% endblock %}
+
+{% block plugin_stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('bundles/unicrmapp/assets/mmenu/assets/examples/css/pages/login-v2.css') }} ">
+{% endblock %}

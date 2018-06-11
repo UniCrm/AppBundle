@@ -1,0 +1,62 @@
+{% extends '@UniCrmApp/layouts/admin_layout.html.twig' %}
+
+{% block page %}
+    <!-- Page -->
+    <div class="page">
+        <div class="page-content">
+
+            <div class="panel panel-bordered">
+
+                <div class="panel-heading">
+                    <!--PANEL TITLE-->
+                    <h3 class="panel-title">
+                        {% block panel_title %} {{ (panel_title is defined) ? panel_title : '' }} {% endblock %}
+                    </h3>
+                    <!--END PANEL TITLE-->
+
+                    <div class="panel-actions">
+                        {% if quick_create is defined %}
+                            <button type="button" class="btn btn-outline btn-default" data-toggle="ajax-modal"
+                                    data-title="" data-action-url="{{ (quick_create.url is defined) ? quick_create.url : ''  }}">
+                                <i class="icon wb-plus-circle"></i>
+                                {{ 'label.create' | trans }}
+                            </button>
+                        {% endif %}
+
+                    </div>
+
+                </div>
+
+                <!--Panel Body-->
+                <div class="panel-body">
+                    <!--TABLE -->
+                    <div class="table-responsive">
+                        <table id="datatable" class="table"></table>
+                    </div>
+                    <!--END TABLE -->
+                </div>
+                <!--Panel Body-->
+            </div>
+        </div>
+    </div>
+    <!-- End Page -->
+{% endblock %}
+
+{% block js %}
+    {{ parent() }}
+    <script>
+        $(document).ready(function () {
+
+            //CONFIG THAT IS COMMING FROM CONTROLLER
+            var datatable_sconfig = {{ datatable | json_encode() | raw}}
+
+            $('#datatable').appTable({
+               source :datatable_sconfig.source,
+               columns : datatable_sconfig.columns,
+            });
+
+
+        });
+    </script>
+{% endblock %}
+

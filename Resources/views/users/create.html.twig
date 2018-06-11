@@ -1,0 +1,23 @@
+{{ form_start(form, {'method': 'post', 'action': path('users.create') }) }}
+<div class="modal-body">
+
+    {{ form_widget(form) }}
+
+</div>
+<div class="modal-footer">
+    <button type="submit" class="btn btn-primary pull-right" > <i class="wb-check-circle"></i> Save</button>
+</div>
+
+{{ form_end(form) }}
+<script>
+    $(document).ready(function () {
+
+        $('[name="user_form"]').appForm({
+            onSuccess : function () {
+                $('#datatable').appTable({
+                    reload : true
+                });
+            }
+        });
+    });
+</script>

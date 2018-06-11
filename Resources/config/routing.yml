@@ -1,0 +1,4 @@
+uni_crm_app:
+    resource: "@UniCrmAppBundle/Controller/"
+    type:     annotation
+    prefix:   /admin

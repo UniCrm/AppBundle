@@ -1,0 +1,9 @@
+{% extends '@UniCrmApp/pages/list.html.twig' %}
+
+{% block js %}
+   {{  parent() }}
+    <script>
+        // specific js for this page
+        console.log(' user  index view');
+    </script>
+{% endblock %}
